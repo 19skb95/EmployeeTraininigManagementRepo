@@ -1,0 +1,384 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="CapacityPlanning.Dashboard" %>*@
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3 ">
+                            <i class="fa fa-bank fa-5x"></i>
+                        </div>
+                        <div class="col-xs-3 pull-right ">
+                            <h3>
+                                <label>A</label>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">Resources On Projects</span>
+                    <span class="pull-right">
+                        <input type="button"  Text="&#xf0a9;" value="clickA"/>
+                        
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-table fa-5x"></i>
+
+                        </div>
+                        <div class="col-xs-3 pull-right">
+                            <h3>
+                                <label>B</label>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Resources on Bench</span>
+                        <span class="pull-right">
+                            <input type="button" value="click"/>
+                            
+                        </span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-th-list fa-5x"></i>
+                        </div>
+                        <div class="col-xs-3 pull-right">
+                            <h3>
+                                <label>C</label>
+                               
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Open Requests</span>
+                        <span class="pull-right">
+                            <input type="button" value="click c"/>
+                            
+                        </span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-book fa-5x"></i>
+                        </div>
+                        <div class="col-xs-3 pull-right">
+                            <h3>
+                                <label>D</label>
+                                
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">New Joiners</span>
+                        <span class="pull-right">
+                            <input type="button" value="Click D"/>
+                            
+                        </span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+
+    <div id="graphBlock" style="display: block;" runat="server">
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+
+                    <!-- /.panel-heading -->
+                    <div class="row">
+                        <br />
+                        <!-- /.col-lg-12 -->
+                    </div>
+
+
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+
+
+
+
+            <div class="col-lg-5">
+                <div class="panel panel-default">
+
+                    <!-- /.panel-heading -->
+                    <div class="panel-body table-responsive">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-pie-chart">
+
+                                <asp:Chart ID="oppProChart" runat="server" Height="400px" Width="400px">
+                                    <Series>
+                                        <asp:Series ToolTip="Value of X:#VALX;   Value of Y:#VALY" Name="Series1" Font="Verdana">
+                                        </asp:Series>
+                                    </Series>
+                                    @*<ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1">
+                                            <AxisX LineColor="DarkGray">
+                                                <MajorGrid LineColor="LightGray" />
+                                            </AxisX>
+                                            <AxisY LineColor="DarkGray">
+                                                <MajorGrid LineColor="LightGray" />
+                                            </AxisY>
+                                            <Area3DStyle Enable3D="true" WallWidth="5" LightStyle="Realistic"></Area3DStyle>
+                                        </asp:ChartArea>
+                                    </ChartAreas>*@
+
+                                    <label>Include your request has benn approved</label>
+                                </asp:Chart>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+
+
+
+
+            @*<div class="col-lg-7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Resources to be released in next 7 days
+                    </div>
+                     /.panel-heading 
+                    <div class="dataTable_wrapper table-responsive" style="overflow-y: scroll; height: 400px">
+
+
+                        <table class="table table-striped table-bordered table-hover" id="dataTables1">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Account Name</th>
+                                    <th>Reporting Manager</th>
+                                    <th>Release Date</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <asp:Repeater ID="rptSevenDays" runat="server">
+                                    <ItemTemplate>
+                                        <tr class="odd gradeX">
+                                            <td><%#Eval("EmployeetName")%></td>
+                                            <td><%#Eval("DesignationName")%></td>
+                                            <td><%#Eval("AccountName")%></td>
+                                            <td><%#Eval("ReportingManager") %></td>
+                                            <td><%#Eval("EndDate", "{0: MMM dd yyyy}")%></td>
+
+                                        </tr>
+                                    </ItemTemplate>
+
+                                </asp:Repeater>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>*@
+
+
+            
+            <!-- /.col-lg-6 -->
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    
+    
+    <!-- Account vs No of resources -->
+    <div id="CapVsResDem" style="display: none;" runat="server">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Capacity V/S Demand</h1>
+        </div>
+        <div class="panel-body table-responsive">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dataTable_wrapper">
+
+
+                        <table class="table table-striped table-bordered table-hover" id="dataTable3s">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No.</th>
+                                    <th>Role</th>
+                                    <th>Demand</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <asp:Repeater ID="rptCapVsDem" runat="server">
+                                    <ItemTemplate>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                <%#(((RepeaterItem)Container).ItemIndex+1).ToString()%>
+                                            </td>
+                                            <td>
+                                                <%#Eval("role")%>
+                                            </td>
+                                            <td>
+                                                <%#Eval("noOfRes")%>
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+
+                                </asp:Repeater>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <asp:Chart ID="RoleDem1" runat="server" Height="500px" Width="700px">
+                        <Series>
+                            <asp:Series ToolTip="Value of X:#VALX;   Value of Y:#VALY" Name="Series1" Font="Verdana">
+                            </asp:Series>
+                        </Series>
+                        <ChartAreas>
+                            <asp:ChartArea Name="ChartArea1">
+                                <AxisX LineColor="DarkGray">
+                                    <MajorGrid LineColor="LightGray" />
+                                </AxisX>
+                                <AxisY LineColor="DarkGray">
+                                    <MajorGrid LineColor="LightGray" />
+                                </AxisY>
+                                <Area3DStyle Enable3D="false" WallWidth="5" LightStyle="Realistic"></Area3DStyle>
+                            </asp:ChartArea>
+                        </ChartAreas>
+
+
+                    </asp:Chart>
+                </div>
+
+            </div>
+            <hr />
+            <div class="col-lg-12">
+                <h1 class="page-header text-center">Capacity V/S Role</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="dataTable_wrapper" style="overflow-y: scroll; height: 400px">
+                        <table class="table table-striped table-bordered table-hover" id="dataTable4s">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No.</th>
+                                    <th>Role</th>
+                                    <th>Capacity</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <asp:Repeater ID="rptCpt" runat="server">
+                                    <ItemTemplate>
+                                        <tr class="odd gradeX">
+                                            <td>
+                                                <%#(((RepeaterItem)Container).ItemIndex+1).ToString()%>
+                                            </td>
+                                            <td>
+                                                <%#Eval("Role_Name")%>
+                                            </td>
+                                            <td>
+                                                <%#Eval("NoOfResources")%>
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+
+                                </asp:Repeater>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <!-- graph here -->
+                <!-- /.table-responsive -->
+
+
+
+                <div class="col-md-3">
+                    <asp:Chart ID="RoleCap1" runat="server" Height="500px" Width="700px">
+                        <Series>
+                            <asp:Series ToolTip="Value of X:#VALX;   Value of Y:#VALY" Name="Series1" Font="Verdana">
+                            </asp:Series>
+                        </Series>
+                        <ChartAreas>
+                            <asp:ChartArea Name="ChartArea1">
+                                <AxisX LineColor="DarkGray">
+                                    <MajorGrid LineColor="LightGray" />
+                                </AxisX>
+                                <AxisY LineColor="DarkGray">
+                                    <MajorGrid LineColor="LightGray" />
+                                </AxisY>
+                                <Area3DStyle Enable3D="false" WallWidth="5" LightStyle="Realistic"></Area3DStyle>
+                            </asp:ChartArea>
+                        </ChartAreas>
+
+
+                    </asp:Chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

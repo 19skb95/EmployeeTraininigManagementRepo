@@ -1,0 +1,291 @@
+﻿@model EmployeeTrainingManagement.Model.TMS_UserMaster
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>User</h2>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-body">
+                    @using (Html.BeginForm(""))
+                    {
+                        @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <h4></h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, "Name:", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            <input type="text" id="UserName" onchange="CheckValidName()" class="form-control" required/>
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <label style="color:red" id="usernamelabel"></label>
+                    </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserMail, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.UserMail, new { htmlAttributes = new { @class = "form-control", @type = "email", @required = "required" } })
+                                @Html.ValidationMessageFor(model => model.UserMail, "", new { @class = "text-danger" })
+                            </div>                            
+                        </div>
+                        @if (ViewBag.id == null)
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div></div>
+                        }
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.RoleId, new SelectList(ViewBag.rolelist, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                            </div></div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DOJ, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="text" name="DOJ" id="doj" @*onchange="checkOnDate()"*@ class="form-control dt" value=@Convert.ToDateTime(Model.DOJ).ToString("dd/MMM/yyyy") />
+                                @*@Html.EditorFor(model => model.DOJ, new { htmlAttributes = new { @class = "form-control dt", @type = "datetime" } })*@
+                                @Html.ValidationMessageFor(model => model.DOJ, "", new { @class = "text-danger" })
+                            </div>
+                            <label style="color:red" id="dojlbl"></label>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="text" name="DOB" id="dob" class="form-control dt" value=@Convert.ToDateTime(Model.DOB).ToString("dd/MMM/yyyy") />
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                            </div></div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.ManagerID, new SelectList(ViewBag.mangerlist, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ManagerID, "", new { @class = "text-danger" })
+                            </div></div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PrimarySkillId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.PrimarySkillId, new SelectList(ViewBag.SkillList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                            </div></div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MobNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="number" id="MobileNumber" class="form-control" onchange="CheckMoblieNumber10Digit()" />
+                                @Html.ValidationMessageFor(model => model.MobNo, "", new { @class = "text-danger" })
+                            </div>
+                            <label style="color:red" id="mobilenumberlabel"></label>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PAN, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="text" id="PanCardNumber" class="form-control" onchange="CheckPancardNumber()" required/>
+                                @Html.ValidationMessageFor(model => model.PAN, "", new { @class = "text-danger" })
+                            </div>
+                            <label style="color:red" id="pancardnumberlabel"></label>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Experience, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="text" id="Exp" name="Experience" onchange="checkNegative()" class="form-control" required/>
+                                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+                            </div>
+                            <label style="color:red" id="ExpMsg"></label>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PassportNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="text" id="PassportNumber" onchange="CheckPassportNumber()" class="form-control" required/>
+                                @Html.ValidationMessageFor(model => model.PassportNumber, "", new { @class = "text-danger" })
+                            </div>
+                            <label style="color:red" id="passportnumberlabel"></label>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PassportExpiryDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <input type="text" name="PassportExpiryDate"  class="form-control dt" value=@Convert.ToDateTime(Model.DOB).ToString("dd/MMM/yyyy") />
+                                @Html.ValidationMessageFor(model => model.PassportExpiryDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @if (ViewBag.id != null)
+                        {
+                            <input type="hidden" name="UserId" value=@ViewBag.id />
+                        }
+                        else
+                        {
+                            <input type="hidden" name="UserId" value="" />
+                        }
+                        <div class="col-md-6">
+                            <div class="pull-right">
+                                <input type="submit" value="Submit" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div></div></div></div></div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                View Role Details
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover" id="dataTables">
+                    <thead>
+                        <tr>
+                            <th style="width:10%">Sl NO.</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Mail ID</th>
+                            <th>Manager Name</th>
+                            <th>Date Of Join</th>
+                            <th>Date Of Birth</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int x = 0;
+                            if (ViewBag.List != null)
+                            {
+                                foreach (var a in ViewBag.List)
+                                {
+                                    x += 1;
+                                    <tr>
+                                        <td>@x</td>
+                                        <td>@a.name</td>
+                                        <td>@a.rolename</td>
+                                        <td>@a.email</td>
+                                        <td>@a.managername</td>
+                                        <td>@a.doj.ToString("dd MMMM yyyy")</td>
+                                        <td>@a.dob.ToString("dd MMMM yyyy")</td>
+                                        <td>
+                                            <a href="~/Admin/CreateUser/@a.id">
+                                                <span class="btn btn-sm btn-info"><i class="fa fa-edit"></i></span>
+                                            </a>
+                                            <a href="~/Admin/DeleteUser/@a.id">
+                                                <span class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div></div></div></div>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+@section scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".dt").datepicker({
+                dateFormat: "yy-MM-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1960:2025"
+            });
+        });
+    </script>
+}
+<script>
+   
+    function CheckDate() {
+        debugger;
+        var bigdate = $("#dt1").val()
+        var smalldate = $("#dt2").val()
+
+        if (bigdate > smalldate) { alert("Correct") }
+    }
+    function checkNegative() {
+        debugger;
+        try {
+            var exp = $("#Exp").val()
+            if (exp >= 0) {
+                $("#ExpMsg").text('')
+            }
+            else {
+                $("#ExpMsg").text("don't enter negative number")
+            }
+        } catch (err) {
+             $("#ExpMsg").text("don't enter negative number")
+        }       
+    }
+    function checkOnDate() {
+        debugger
+        var doj = new Date($("#doj").val())
+        var currentDate = new Date();
+       // alert(currentDate.getDate - doj.getDate);
+        const diffTime = Math.abs(currentDate.getTime() - doj.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (doj < currentDate) {
+            $('#dojlbl').text('')
+            if (diffDays >= 30) {
+                $('#dojlbl').text('')
+            }
+            else {
+                $("#doj").val('01-Jan-0001')
+                $('#dojlbl').text('Date of joining  should be less than one month.')
+            }
+        } else {
+            $("#doj").val('01-Jan-0001')
+            $('#dojlbl').text('Date of joining  should be less than current date.')
+        }
+        }
+    function CheckMoblieNumber10Digit()
+    {
+        debugger;PanCardNumber
+        var regx = /^[1-9]\d{9}$/g;
+        var number = document.getElementById("MobileNumber").value;
+        if (regx.test(number)) {
+            $("#mobilenumberlabel").text('');
+        }
+        else {
+            $("#mobilenumberlabel").text('Enter valid 10 digit mobile number');
+        }
+    }
+    function CheckValidName()
+    {
+        debugger;
+        var regx = /^[a-zA-Z ]+$/g;
+        var stringtotest = document.getElementById("UserName").value;
+        if (regx.test(stringtotest)) {
+            $("#usernamelabel").text('');
+        }
+        else { $("#usernamelabel").text('Enter Valid Name'); }
+        }
+    function CheckPancardNumber()
+    {
+        debugger;
+        var regx = /^[a-zA-z][\w]{9}$/g;
+        var stringtotest = document.getElementById("PanCardNumber").value;
+        if (regx.test(stringtotest)) {
+            $("#pancardnumberlabel").text('');            
+        }
+        else {  $("#pancardnumberlabel").text('Enter Valid PancardNumber');  }
+        }
+    function CheckPassportNumber()
+    {
+        debugger;
+        var regx = /^[a-zA-z][0-9]{6}$/g;
+        var stringtotest = document.getElementById("PassportNumber").value;
+        if (regx.test(stringtotest)) {
+            $("#passportnumberlabel").text('');            
+        }
+        else {
+            $("#passportnumberlabel").text('Enter Valid Passport Number');
+        }
+    }
+</script>

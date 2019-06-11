@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @ViewBag.Title = "ABC INC";
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ABC INC.</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Design/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Design/css/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Design/css/startmin.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Design/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">ABC Private Limited</a>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            </ul>
+            <ul class="nav navbar-right navbar-top-links">
+                <li class="dropdown navbar-inverse">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> @TempData["name"] <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="~/Login/UserDetails"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="~/Login/ChangePassword"><i class="fa fa-gear fa-fw"></i> Change Password</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="~/Login/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">                               
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="~/Home/Dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        @if (Convert.ToInt32(Session["RoleId"]) == 1)
+                        {
+                            <li><a href="~/Admin/CreateUser"><i class="fa fa-bar-chart-o fa-fw"></i>User</a></li>
+                            <li><a href="~/Admin/CreateRole"><i class="fa fa-bar-chart-o fa-fw"></i>Role</a></li>
+                            <li><a href="~/Admin/CreateCourse"><i class="fa fa-bar-chart-o fa-fw"></i>Course</a></li>
+                            <li><a href="~/Admin/CreateBatch"><i class="fa fa-bar-chart-o fa-fw"></i>Batch</a></li>
+                            <li><a href="~/Admin/ViewSkills"><i class="fa fa-bar-chart-o fa-fw"></i>View Skills</a></li>
+                        }
+                        @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                        {
+                            <li><a href="~/Manager/BatchDetails"><i class="fa fa-bar-chart-o fa-fw"></i>Approve Request</a></li>
+                            <li><a href="~/Manager/ViewAllBatches"><i class="fa fa-bar-chart-o fa-fw"></i>View All Request</a></li>
+                            <li><a href="~/Admin/CreateCourse"><i class="fa fa-bar-chart-o fa-fw"></i>Course</a></li>
+                            <li><a href="~/Admin/CreateBatch"><i class="fa fa-bar-chart-o fa-fw"></i>Batch</a></li>
+                            <li><a href="~/Manager/MyTeam"><i class="fa fa-bar-chart-o fa-fw"></i>My Team</a></li>
+                            <li><a href="~/Admin/ViewSkills"><i class="fa fa-bar-chart-o fa-fw"></i>View Skills</a></li>
+                        }
+                        @if (Convert.ToInt32(Session["RoleId"]) == 3)
+                        {
+                            <li><a href="/Employee/CreateRequest"><i class="fa fa-bar-chart-o fa-fw"></i>Request For Batch</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Current Project </a></li>
+                        }
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <br /><br />
+            @if (TempData["Success"] != null)
+            {
+                <div class="col-md-5 pull-right d">
+                    <button type="button" class="close" onclick="closeDiv()">&times;</button>
+                    <div class="form-control" style="background-color:green">
+                        <label style="color:white">@TempData["Success"]</label>
+                    </div>
+                </div>
+            }
+            @if (TempData["Warning"] != null)
+            {
+                <div class="col-md-5 pull-right d">
+                    <button type="button" class="close" onclick="closeDiv()">&times;</button>
+                    <div class="form-control" style="background-color:orangered">
+                        <label style="color:white">@TempData["Warning"]</label>
+                    </div>
+                </div>
+            }
+            @if (TempData["Danger"] != null)
+            {
+                <div class="col-md-5 pull-right d">
+                    <button type="button" class="close" onclick="closeDiv()">&times;</button>
+                    <div class="form-control" style="background-color:red">
+                        <label style="color:white">@TempData["Danger"]</label>
+                    </div>
+                </div>
+            }
+            @RenderBody()
+        </div></div>
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p><center>All rights reserved. &copy;@{DateTime.Today.ToString();} - <b>ABC Pvt. Ltd. </b></center></p>
+            <p><center>Developed and managed by:<b> Team Work Force Allocation</b></center></p>
+        </footer>
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/Design/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Design/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Design/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Design/js/startmin.js"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+    $(document).ready(function () {
+
+            debugger
+            $(".d").hide(4000);
+        
+    })
+       function closeDiv() {
+            debugger
+            $(".d").hide();
+        } 
+    </script>
+</body>
+</html>

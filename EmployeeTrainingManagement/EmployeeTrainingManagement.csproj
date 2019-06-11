@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F674DA8-1B15-4DF5-8CA8-9E8A549F9B6B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmployeeTrainingManagement</RootNamespace>
+    <AssemblyName>EmployeeTrainingManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906010748056_firstmigration.cs" />
+    <Compile Include="Migrations\201906010748056_firstmigration.Designer.cs">
+      <DependentUpon>201906010748056_firstmigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906010753236_firstmigration1.cs" />
+    <Compile Include="Migrations\201906010753236_firstmigration1.Designer.cs">
+      <DependentUpon>201906010753236_firstmigration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906030607124_skillmaster.cs" />
+    <Compile Include="Migrations\201906030607124_skillmaster.Designer.cs">
+      <DependentUpon>201906030607124_skillmaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906030611043_skillmaster1.cs" />
+    <Compile Include="Migrations\201906030611043_skillmaster1.Designer.cs">
+      <DependentUpon>201906030611043_skillmaster1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906030615339_skillmaster2.cs" />
+    <Compile Include="Migrations\201906030615339_skillmaster2.Designer.cs">
+      <DependentUpon>201906030615339_skillmaster2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906031049049_project_designation_EmployeeProjectDetailstabl.cs" />
+    <Compile Include="Migrations\201906031049049_project_designation_EmployeeProjectDetailstabl.Designer.cs">
+      <DependentUpon>201906031049049_project_designation_EmployeeProjectDetailstabl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906111817312_dsdkds.cs" />
+    <Compile Include="Migrations\201906111817312_dsdkds.Designer.cs">
+      <DependentUpon>201906111817312_dsdkds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\ETMModel.cs" />
+    <Compile Include="Model\TMS_BatchMaster.cs" />
+    <Compile Include="Model\TMS_CourseMaster.cs" />
+    <Compile Include="Model\TMS_Designation.cs" />
+    <Compile Include="Model\TMS_EmployeeProjectDetails.cs" />
+    <Compile Include="Model\TMS_ProjectMaster.cs" />
+    <Compile Include="Model\TMS_Request.cs" />
+    <Compile Include="Model\TMS_RoleMaster.cs" />
+    <Compile Include="Model\TMS_SkillMaster.cs" />
+    <Compile Include="Model\TMS_UserMaster.cs" />
+    <Compile Include="Model\ViewModelClass.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EmployeeTrainingManagement.dll" />
+    <Content Include="bin\EmployeeTrainingManagement.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="date\bootstrap-datepicker.js" />
+    <Content Include="date\datepicker.css" />
+    <Content Include="Design\css\bootstrap-social.css" />
+    <Content Include="Design\css\bootstrap-theme.min.css" />
+    <Content Include="Design\css\bootstrap.min.css" />
+    <Content Include="Design\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Design\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Design\css\font-awesome.min.css" />
+    <Content Include="Design\css\main.css" />
+    <Content Include="Design\css\metisMenu.min.css" />
+    <Content Include="Design\css\morris.css" />
+    <Content Include="Design\css\startmin.css" />
+    <Content Include="Design\css\timeline.css" />
+    <Content Include="Design\fonts\fontawesome-webfont.svg" />
+    <Content Include="Design\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Design\js\bootstrap.min.js" />
+    <Content Include="Design\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Design\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Design\js\flot-data.js" />
+    <Content Include="Design\js\flot\excanvas.min.js" />
+    <Content Include="Design\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Design\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Design\js\flot\jquery.flot.categories.js" />
+    <Content Include="Design\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Design\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Design\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Design\js\flot\jquery.flot.image.js" />
+    <Content Include="Design\js\flot\jquery.flot.js" />
+    <Content Include="Design\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Design\js\flot\jquery.flot.pie.js" />
+    <Content Include="Design\js\flot\jquery.flot.resize.js" />
+    <Content Include="Design\js\flot\jquery.flot.selection.js" />
+    <Content Include="Design\js\flot\jquery.flot.stack.js" />
+    <Content Include="Design\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Design\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Design\js\flot\jquery.flot.time.js" />
+    <Content Include="Design\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Design\js\jquery.min.js" />
+    <Content Include="Design\js\metisMenu.min.js" />
+    <Content Include="Design\js\morris-data.js" />
+    <Content Include="Design\js\morris.min.js" />
+    <Content Include="Design\js\raphael.min.js" />
+    <Content Include="Design\js\startmin.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="images\userimag.png" />
+    <Content Include="log\css\main.css" />
+    <Content Include="log\css\util.css" />
+    <Content Include="log\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="log\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="log\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="log\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="log\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="log\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="log\images\bg-01.jpg" />
+    <Content Include="log\images\icons\favicon.ico" />
+    <Content Include="log\images\icons\map-marker.png" />
+    <Content Include="log\js\main.js" />
+    <Content Include="log\js\map-custom.js" />
+    <Content Include="log\vendor\animate\animate.css" />
+    <Content Include="log\vendor\animsition\css\animsition.css" />
+    <Content Include="log\vendor\animsition\css\animsition.min.css" />
+    <Content Include="log\vendor\animsition\js\animsition.js" />
+    <Content Include="log\vendor\animsition\js\animsition.min.js" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="log\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="log\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="log\vendor\bootstrap\js\popper.js" />
+    <Content Include="log\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="log\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="log\vendor\countdowntime\countdowntime.js" />
+    <Content Include="log\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="log\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="log\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="log\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="log\vendor\daterangepicker\moment.js" />
+    <Content Include="log\vendor\daterangepicker\moment.min.js" />
+    <Content Include="log\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="log\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="log\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="log\vendor\select2\select2.css" />
+    <Content Include="log\vendor\select2\select2.js" />
+    <Content Include="log\vendor\select2\select2.min.css" />
+    <Content Include="log\vendor\select2\select2.min.js" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.dll" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.pdb" />
+    <Content Include="obj\Debug\TempPE\Models.TMSModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TMSModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TMSModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagementDB.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagementDB.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagementDB.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagementModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagementModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagementModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagerDB.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagerDB.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.TrainingManagerDB.Designer.cs.dll" />
+    <Content Include="Scripts\ApplicationScript.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="sd.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Design\fonts\fontawesome-webfont.eot" />
+    <Content Include="Design\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Design\fonts\fontawesome-webfont.woff" />
+    <Content Include="Design\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Design\fonts\FontAwesome.otf" />
+    <Content Include="Design\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Design\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Design\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Design\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="log\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="log\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="log\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="log\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="log\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="log\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="log\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="log\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="log\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="log\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="log\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="log\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="log\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TMSModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TMSModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TMSModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagementDB.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagementDB.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagementDB.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagementModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagementModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagementModel.ssdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagerDB.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagerDB.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\TrainingManagerDB.ssdl" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.csproj.CopyComplete" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.csproj.GenerateResource.cache" />
+    <Content Include="obj\Debug\EmployeeTrainingManagement.csprojAssemblyReference.cache" />
+    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Release\EmployeeTrainingManagement.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\EmployeeTrainingManagement.csprojAssemblyReference.cache" />
+    <Content Include="bin\EmployeeTrainingManagement.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\LogIn\Index.cshtml" />
+    <Content Include="Views\Admin\CreateRole.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
+    <Content Include="Views\Admin\CreateCourse.cshtml" />
+    <Content Include="Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Views\Admin\CreateBatch.cshtml" />
+    <Content Include="Views\Employee\CreateRequest.cshtml" />
+    <Content Include="Views\Employee\RequestForm.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Manager\BatchDetails.cshtml" />
+    <Content Include="Views\Manager\ApproveRequest.cshtml" />
+    <Content Include="Views\Manager\ViewAllBatches.cshtml" />
+    <Content Include="Views\Manager\MyTeam.cshtml" />
+    <Content Include="Views\Admin\ViewSkills.cshtml" />
+    <Content Include="Views\LogIn\UserDetails.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\LogIn\ChangePassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906010748056_firstmigration.resx">
+      <DependentUpon>201906010748056_firstmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906010753236_firstmigration1.resx">
+      <DependentUpon>201906010753236_firstmigration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906030607124_skillmaster.resx">
+      <DependentUpon>201906030607124_skillmaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906030611043_skillmaster1.resx">
+      <DependentUpon>201906030611043_skillmaster1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906030615339_skillmaster2.resx">
+      <DependentUpon>201906030615339_skillmaster2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906031049049_project_designation_EmployeeProjectDetailstabl.resx">
+      <DependentUpon>201906031049049_project_designation_EmployeeProjectDetailstabl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906111817312_dsdkds.resx">
+      <DependentUpon>201906111817312_dsdkds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\EmployeeTrainingManagement.Migrations.firstmigration.resources" />
+    <EmbeddedResource Include="obj\Debug\EmployeeTrainingManagement.Migrations.firstmigration1.resources" />
+    <EmbeddedResource Include="obj\Debug\EmployeeTrainingManagement.Migrations.project_designation_EmployeeProjectDetailstabl.resources" />
+    <EmbeddedResource Include="obj\Debug\EmployeeTrainingManagement.Migrations.skillmaster.resources" />
+    <EmbeddedResource Include="obj\Debug\EmployeeTrainingManagement.Migrations.skillmaster1.resources" />
+    <EmbeddedResource Include="obj\Debug\EmployeeTrainingManagement.Migrations.skillmaster2.resources" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50089</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50089/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

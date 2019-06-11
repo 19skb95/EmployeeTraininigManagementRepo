@@ -1,0 +1,47 @@
+﻿@{
+       ViewBag.Title = "CreateRequest";
+       Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>View Calender</h3>
+                </div>            
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+                        <thead>
+                            <tr>
+                                <th style="width:10%">Sl NO.</th>
+                                <th>Batch Name</th>
+                                <th>Course Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th style="width:10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int x = 0;
+                                if (ViewBag.List != null)
+                                {
+                                    foreach (var a in ViewBag.List)
+                                    {
+                                        x += 1;
+                                        <tr>
+                                            <td>@x</td>
+                                            <td>@a.BatchName</td>
+                                            <td>@a.CourseName</td>
+                                            <td>@a.StartDate.ToString("dd/MMMM/yyyy")</td>
+                                            <td>@a.EndDate.ToString("dd/MMMM/yyyy")</td>
+                                            <td>
+                                                <a href="~/Employee/RequestForm/@a.BatchId">
+                                                    <span class="btn btn-sm btn-instagram"><i class="fa fa-user"></i>Request</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div></div></div></div>
